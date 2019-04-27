@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from .models import Job
 
 
 def landing(request):
-    return render(request, 'jobs/landing.html')
+    jobs = Job.objects.all()
+    return render(request, 'jobs/landing.html', {'jobs': jobs})

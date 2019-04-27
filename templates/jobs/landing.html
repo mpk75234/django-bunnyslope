@@ -1,8 +1,62 @@
 {% extends 'jobs/base.html' %}
 {% load static %}
 {% block content %}
-<h1>Jobs! Landing!</h1>
-<img src="{% static 'blog/img/landing.jpg' %}">
-<img src="{% static 'blog/img/hello.jpg' %}">
-<img src="{% static 'blog/img/eat.jpg' %}">
+    <header>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Jobs</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Blog</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">About</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"  href="#">Siguiente</a>
+  </li>
+</ul>
+</header>
+
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Me llamo Chacal</h1>
+      <p class="lead text-muted"> Bienvenidos a mi pagina de obras con Django!</p>
+      <p>
+        <a href="#" class="btn btn-primary my-2">enviame correo</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+  {% for job in jobs %}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="card-img-top" src="{{ job.image.url }}">
+            <div class="card-body">
+              <p class="card-text">{{ job.summary }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p> &copy;{% now "Y" %} Chacal Tejas Rodriquez</p>
+  </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+
 {% endblock %}
