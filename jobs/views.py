@@ -2,4 +2,4 @@ from django.shortcuts import render
 
 
 def landing(request):
-    return render(request, 'blog/landing.html')
+    return render(request, 'jobs/landing.html')
