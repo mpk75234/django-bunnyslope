@@ -1,3 +1,4 @@
+
 {% extends 'blog/base.html' %}
 {% load static %}
 {% block content %}
@@ -13,12 +14,14 @@
 </header>
 
 
-<h1>Bienvenidos a mi blog</h1>
+{% if blog %}
+<h1>{{ blog.title }}</h1>
 <hr>
-{% for blog in blogs %}
-<a href="{% url 'blog:detail'  blog.id %}">{{ blog.pub_date }} - {{ blog.title }}</a> <img class="img-fluid" height="100" width="200" src="{{ blog.image.url }}"/></p>
+<img src="{{ blog.image.url }}" />
+<br>
+<p>{{ blog.body}}</p>
 <hr>
-{% endfor %}
+{% endif %}
 <hr>
 <footer class="text-muted">
   <div class="container">
